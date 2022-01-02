@@ -1,0 +1,13 @@
+{
+  "name": "storyblok-site",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.7.0",
+    "gridsome-source-storyblok": "^2.0.0"
+  }
+}
