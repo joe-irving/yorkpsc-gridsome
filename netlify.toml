@@ -1,0 +1,4 @@
+[[headers]]
+  for: "/css/classes.json"
+    [header.values]
+    Access-Control-Allow-Origin = "//app.storyblok.com"
