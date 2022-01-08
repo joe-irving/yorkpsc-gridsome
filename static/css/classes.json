@@ -2,5 +2,9 @@
   {
     "name": "Wrapped",
     "value": "wrapper"
+  },
+  {
+    "name": "padded",
+    "value": "pad"
   }
 ]
