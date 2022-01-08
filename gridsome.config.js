@@ -26,12 +26,12 @@ module.exports = {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
 
-    if (isServer) {
-      config.externals([/^(vue|vue-router|vue-meta)$/])
-    }
+    // if (isServer) {
+    //   config.externals([/^(vue|vue-router|vue-meta)$/])
+    // }
   },
   configureWebpack: {
-    devtool: 'source-map'
+    // devtool: 'source-map'
   },
   templates: {
     Post: [
