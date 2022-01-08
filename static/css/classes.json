@@ -4,7 +4,19 @@
     "value": "wrapper"
   },
   {
-    "name": "padded",
+    "name": "Padded",
     "value": "pad"
+  },
+  {
+    "name": "Center",
+    "value": "center"
+  },
+  {
+    "name": "Space Vertically",
+    "value": "space-vertical"
+  },
+  {
+    "name": "Space Horizontally",
+    "value": "space-horizontal"
   }
 ]

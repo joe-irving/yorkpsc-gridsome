@@ -10,12 +10,14 @@
     "@gridsome/source-airtable": "^0.2.0",
     "gridsome": "^0.7.0",
     "gridsome-source-storyblok": "^2.0.0",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "v-runtime-template": "^1.10.0"
   },
   "devDependencies": {
     "marked": "^4.0.9",
     "sass": "^1.45.2",
     "sass-loader": "^10.2.0",
     "style-resources-loader": "^1.5.0"
+
   }
 }

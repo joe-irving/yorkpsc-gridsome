@@ -14,10 +14,13 @@ import BlokGroup from '~/components/BlokGroup.vue'
 import BlokRichtext from '~/components/BlokRichtext.vue'
 import BlokImage from '~/components/BlokImage.vue'
 import BlokAccordion from '~/components/BlokAccordion.vue'
+import BlokSnippet from '~/components/BlokSnippet.vue'
+import BlokActionNetworkForm from '~/components/BlokActionNetworkForm.vue'
 
 // Other components
 import Accordion from '~/components/Accordion.vue'
 import AccordionItem from '~/components/AccordionItem.vue'
+
 
 
 // Import other tools
@@ -37,10 +40,13 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('BlokRichtext', BlokRichtext)
   Vue.component('BlokImage', BlokImage)
   Vue.component('BlokAccordion', BlokAccordion)
+  Vue.component('BlokSnippet', BlokSnippet)
+  Vue.component('BlokActionNetworkForm', BlokActionNetworkForm)
 
   // Register other components
   Vue.component('Accordion', Accordion)
   Vue.component('AccordionItem', AccordionItem)
+  // Vue.component('VRuntimeTemplate',VRuntimeTemplate)
 
   // Register external npm packages (i.e. not Vue plugins)
   // See  https://gridsome.org/docs/assets-scripts/#using-an-external-library-1

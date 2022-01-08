@@ -16,13 +16,14 @@ $rounding: 5px;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    800px !default;
+$content-width:    600px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 
 $on-medium:        $on-palm !default;
 $on-large:         $on-laptop !default;
+
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -47,4 +48,7 @@ $transition: 0.5s;
 
 $padding-unit: 10px;
 
-// @import "main.scss";
+
+@import "main.scss";
+
+  // "blokLayoutClasses.scss";

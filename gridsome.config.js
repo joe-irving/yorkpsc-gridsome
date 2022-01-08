@@ -30,6 +30,7 @@ module.exports = {
     //   config.externals([/^(vue|vue-router|vue-meta)$/])
     // }
   },
+  runtimeCompiler: true,
   css: {
     loaderOptions: {
       sass: {

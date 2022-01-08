@@ -1,8 +1,29 @@
-.Buttons{
-  display: flex;
-  gap: $padding-unit;
-  padding: $padding-unit 0 ;
+@use "src/assets/scss/base.scss";
+
+// .Buttons{
+//   display: flex;
+//   gap: $padding-unit;
+//   padding: $padding-unit 0 ;
+// }
+// .Button{
+//   padding: $padding-unit;
+// }
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
 }
-.Button{
+.pad{
   padding: $padding-unit;
+}
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+.space-vertical{
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+}
+.space-horizontal{
+  margin-left: $spacing-unit;
+  margin-right:  $spacing-unit;
 }

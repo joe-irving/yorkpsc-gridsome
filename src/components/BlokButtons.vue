@@ -9,3 +9,12 @@ export default {
   props: ['blok']
 }
 </script>
+
+<style lang=scss>
+  .Buttons{
+    display: flex;
+    justify-content: space-around;
+    gap: $padding-unit;
+    padding: $padding-unit 0 ;
+  }
+</style>
