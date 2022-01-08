@@ -45,6 +45,7 @@ module.exports = {
         client: {
           accessToken: process.env.STORYBLOK_TOKEN
         },
+        version: process.env.STORYBLOK_VERSION || "published",
         types: {
           story: {
             typeName: 'StoryblokEntry'
