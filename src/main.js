@@ -38,12 +38,12 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('BlokImage', BlokImage)
   Vue.component('BlokAccordion', BlokAccordion)
 
-  // Register other useful components
+  // Register other components
   Vue.component('Accordion', Accordion)
   Vue.component('AccordionItem', AccordionItem)
 
-  // Register libs
-  // Vue.use(moment)
-  Vue.prototype.$marked = marked;
+  // Register external npm packages (i.e. not Vue plugins)
+  // See  https://gridsome.org/docs/assets-scripts/#using-an-external-library-1
+  Vue.prototype.$marked = marked; // For parsing markdown
   Vue.prototype.$slugify = slugify;
 }

@@ -2,6 +2,7 @@
   <Layout>
     <component
       v-if="story.content.component"
+      :class=story.content.classes
       :key="story.content._uid"
       :blok="story.content"
       :is="'Blok'+story.content.component"

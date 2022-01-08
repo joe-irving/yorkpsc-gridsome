@@ -1,6 +1,6 @@
 <template>
   <div v-editable="blok">
-    <div v-html="richtext"></div>
+    <div class="TextBlock" v-html="richtext"></div>
   </div>
 </template>
 
@@ -14,3 +14,9 @@
     }
   }
 </script>
+
+<style lang=scss>
+  .TextBlock{
+    padding: $padding-unit;
+  }
+</style>

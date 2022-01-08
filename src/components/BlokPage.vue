@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="'Blok'+blok.component">{{'Blok'+blok.component}}</component>
+    <component :class=blok.classes :key="blok._uid" v-for="blok in blok.body" :blok="blok" :is="'Blok'+blok.component">{{'Blok'+blok.component}}</component>
   </div>
 </template>
 

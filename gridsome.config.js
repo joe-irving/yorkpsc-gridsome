@@ -11,7 +11,7 @@ function addStyleResource (rule) {
     .loader('style-resources-loader')
     .options({
       patterns: [
-        path.resolve(__dirname, './src/assets/sass/_init.scss'),
+        path.resolve(__dirname, './src/assets/scss/_init.scss'),
       ],
     })
 }
@@ -30,8 +30,17 @@ module.exports = {
     //   config.externals([/^(vue|vue-router|vue-meta)$/])
     // }
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: '@import "@/assets/scss/_init.scss";',
+      }
+    }
+  },
   configureWebpack: {
-    // devtool: 'source-map'
+    // For some reason a syntax error was being thrown in production (npm run build),
+    // but not in `gridsome develop`. Commenting out the below line fixed this
+    //devtool: 'source-map'
   },
   templates: {
     Post: [

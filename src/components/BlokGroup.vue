@@ -5,7 +5,7 @@
     v-editable="blok"
     :style="{'background-image': 'url('+blok.background_image.filename+')'}"
     >
-    <component :key="blok._uid" v-for="blok in blok.bloks" :blok="blok" :is="'Blok'+blok.component" :style="childStyle"></component>
+    <component  :class=blok.classes :key="blok._uid" v-for="blok in blok.bloks" :blok="blok" :is="'Blok'+blok.component" :style="childStyle"></component>
   </div>
 </template>
 
