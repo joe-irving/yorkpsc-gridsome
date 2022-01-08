@@ -1,3 +1,6 @@
-{
-  "Wrapped": "wrapper"
-}
+[
+  {
+    "name": "Wrapped",
+    "value": "wrapper"
+  }
+]
