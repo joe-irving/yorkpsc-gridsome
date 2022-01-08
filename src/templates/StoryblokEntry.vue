@@ -4,8 +4,9 @@
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
-      :is="story.content.component"
+      :is="'Blok'+story.content.component"
     >
+    {{'Blok'+story.content.component}}
     </component>
   </Layout>
 </template>
