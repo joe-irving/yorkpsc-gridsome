@@ -18,13 +18,17 @@ function addStyleResource (rule) {
 
 module.exports = {
   siteName: 'York PSC',
-  chainWebpack (config) {
+  chainWebpack (config, { isServer }) {
     // Load variables for all vue-files
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
 
     types.forEach(type => {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
+
+    if (isServer) {
+      config.externals([/^(vue|vue-router|vue-meta)$/])
+    }
   },
   configureWebpack: {
     devtool: 'source-map'
