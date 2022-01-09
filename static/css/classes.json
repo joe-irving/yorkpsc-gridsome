@@ -18,5 +18,9 @@
   {
     "name": "Space Horizontally",
     "value": "space-horizontal"
+  },
+  {
+    "name": "Space lines",
+    "value": "space-lines"
   }
 ]
