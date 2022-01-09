@@ -1,13 +1,5 @@
 @use "src/assets/scss/base.scss";
 
-// .Buttons{
-//   display: flex;
-//   gap: $padding-unit;
-//   padding: $padding-unit 0 ;
-// }
-// .Button{
-//   padding: $padding-unit;
-// }
 .wrapper {
   max-width: $content-width;
   margin: 0 auto;
@@ -20,10 +12,24 @@
   text-align: center;
 }
 .space-vertical{
-  margin-top: $spacing-unit;
-  margin-bottom: $spacing-unit;
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
 }
 .space-horizontal{
-  margin-left: $spacing-unit;
-  margin-right:  $spacing-unit;
+  margin-left: $spacing-unit  * 2;
+  margin-right:  $spacing-unit * 2;
+}
+.space-lines {
+  line-height: 2;
+}
+
+// Richtext formatting
+@each $name, $code in $colors {
+  .#{ $name }-circle-richtext{
+    border: $rounding $code solid;
+    border-radius: 50%;
+    padding: $padding-unit / 2 $padding-unit;
+    // margin: $padding-unit / -2 -1 * $padding-unit;
+    // z-index: 0;
+  }
 }

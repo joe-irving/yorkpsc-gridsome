@@ -1,9 +1,10 @@
 <template>
   <div
     class="group"
-    :class="blok.direction"
+    :class="parentClasses"
     v-editable="blok"
     :style="{'background-image': 'url('+blok.background_image.filename+')'}"
+    :id=blok.slug
     >
     <component  :class=blok.classes :key="blok._uid" v-for="blok in blok.bloks" :blok="blok" :is="'Blok'+blok.component" :style="childStyle"></component>
   </div>
@@ -22,6 +23,16 @@ export default {
         styles.flexBasis = `${ 100 / this.blok.bloks.length }%`
       }
       return styles
+    },
+    childComponents() {
+      return this.blok.bloks.map((c) => c.component)
+    },
+    parentClasses() {
+      return [
+        this.blok.direction,
+        this.childComponents.join('-'),
+        ...this.childComponents
+      ]
     }
   }
 }
@@ -36,11 +47,17 @@ export default {
     -o-background-size: cover;
     background-size: cover;
     display: flex;
-    &.columns{
-      flex-direction: row;
+    @media screen and (max-width: $on-palm) {
+      &.columns{
+        flex-direction: column;
+        &.Image-Richtext {
+          flex-direction: column-reverse;
+        }
+      }
     }
     &.rows {
       flex-direction: column;
     }
+
   }
 </style>
