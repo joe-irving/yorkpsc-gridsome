@@ -22,6 +22,9 @@
 .space-lines {
   line-height: 2;
 }
+.full-screen {
+  min-height: 100vh;
+}
 
 // Richtext formatting
 @each $name, $code in $colors {

@@ -22,5 +22,9 @@
   {
     "name": "Space lines",
     "value": "space-lines"
+  },
+  {
+    "name": "Full Screen Height",
+    "value": "full-screen"
   }
 ]
