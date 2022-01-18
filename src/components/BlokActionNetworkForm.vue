@@ -4,9 +4,16 @@
 </template>
 
 <script>
+  import axios from 'axios'
 export default {
   props: ['blok'],
   data() {
+    // axios.get({
+    //   url: "https://actionnetwork.org/oembed/",
+    //   params: {
+    //     url: "this.blok.url"
+    //   }
+    // })
     let urlList = this.blok.url.split("://")[1].split("?")[0].split("/").slice(1,3);
     let action = {
       "type": urlList[0].slice(0,-1),

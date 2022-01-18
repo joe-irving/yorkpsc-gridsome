@@ -1,22 +1,33 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
-    </header>
+    <BlokHeader :blok="global.content"/>
     <slot/>
   </div>
 </template>
+
+<script>
+  export default {
+    computed: {
+      global() {
+        return this.$static.global.edges[0].node
+      }
+    }
+  }
+</script>
 
 <static-query>
 query {
   metadata {
     siteName
+  }
+  global: allStoryblokEntry (filter: { slug: { eq: "global" } }) {
+    edges {
+      node {
+        id
+        full_slug
+        content
+      }
+    }
   }
 }
 </static-query>
@@ -30,24 +41,5 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
-}
-
-/* .layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-} */
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
 }
 </style>

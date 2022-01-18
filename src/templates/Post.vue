@@ -1,8 +1,10 @@
 <template id="">
   <Layout>
-    <h1>{{ this.$page.post.title }}</h1>
-    <div class="content">
-      {{ this.$page.post.content }}
+    <div class="wrapper">
+      <h1>{{ this.$page.post.title }}</h1>
+      <div class="content">
+        {{ this.$page.post.content }}
+      </div>
     </div>
   </Layout>
 </template>

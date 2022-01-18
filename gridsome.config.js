@@ -88,11 +88,11 @@ module.exports = {
             }
           },
           {
-            name: "tblqE2Wwn2uTCYl6e",
+            name: "tbl4GGSoSFOaVk8sX",
             typeName: "Post",
-            select: {
-              view: "viwRHmMkXFg7jvfRB"
-            }
+            // select: {
+            //   view: "viwRHmMkXFg7jvfRB"
+            // }
           }
         ]
       }

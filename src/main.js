@@ -8,6 +8,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 
 // Storyblok Components
 import BlokPage from '~/components/BlokPage.vue'
+import BlokHeader from '~/components/BlokHeader.vue'
 import BlokButton from '~/components/BlokButton.vue'
 import BlokButtons from '~/components/BlokButtons.vue'
 import BlokGroup from '~/components/BlokGroup.vue'
@@ -21,11 +22,21 @@ import BlokActionNetworkForm from '~/components/BlokActionNetworkForm.vue'
 import Accordion from '~/components/Accordion.vue'
 import AccordionItem from '~/components/AccordionItem.vue'
 
-
-
 // Import other tools
 import { marked } from 'marked'
 import slugify from 'slugify'
+
+function getStoryblokLink(target){
+  let link;
+  if (target.linktype === "story"){
+    link = `/${ target.cached_url }`
+  }else if (target.linktype == "url" || target.type == "asset"){
+    link = target.url
+  }else if (target.linktype == "email"){
+    link = `mailto:${target.email}`;
+  }
+  return link
+}
 
 
 export default function (Vue, { router, head, isClient }) {
@@ -34,6 +45,7 @@ export default function (Vue, { router, head, isClient }) {
 
   // Register Bloks
   Vue.component('BlokPage', BlokPage)
+  Vue.component('BlokHeader', BlokHeader)
   Vue.component('BlokButton', BlokButton)
   Vue.component('BlokButtons', BlokButtons)
   Vue.component('BlokGroup', BlokGroup)
@@ -52,4 +64,5 @@ export default function (Vue, { router, head, isClient }) {
   // See  https://gridsome.org/docs/assets-scripts/#using-an-external-library-1
   Vue.prototype.$marked = marked; // For parsing markdown
   Vue.prototype.$slugify = slugify;
+  Vue.prototype.$getStoryblokLink = getStoryblokLink;
 }

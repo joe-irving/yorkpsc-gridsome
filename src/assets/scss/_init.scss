@@ -10,6 +10,7 @@ $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
+$header-height: $spacing-unit *2;
 
 $rounding: 5px;
 
@@ -60,6 +61,7 @@ $white: #FFFFFF;
 $green: #149954;
 $button-color: $red;
 $button-text-color: $black;
+$background-color: $white;
 
 
 @import "main.scss";
