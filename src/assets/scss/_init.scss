@@ -61,7 +61,12 @@ $white: #FFFFFF;
 $green: #149954;
 $button-color: $red;
 $button-text-color: $black;
+$text-color: $black;
 $background-color: $white;
+$shadow: grey;
+
+$background-color-invert: invert($background-color,100%);
+$text-color-invert: invert($text-color,100%);
 
 
 @import "main.scss";

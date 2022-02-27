@@ -2,6 +2,7 @@
   <div class="layout">
     <BlokHeader :blok="global.content"/>
     <slot/>
+    <BlokFooter :blok="global.content"/>
   </div>
 </template>
 

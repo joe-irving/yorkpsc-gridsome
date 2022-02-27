@@ -8,7 +8,6 @@ import DefaultLayout from '~/layouts/Default.vue'
 
 // Storyblok Components
 import BlokPage from '~/components/BlokPage.vue'
-import BlokHeader from '~/components/BlokHeader.vue'
 import BlokButton from '~/components/BlokButton.vue'
 import BlokButtons from '~/components/BlokButtons.vue'
 import BlokGroup from '~/components/BlokGroup.vue'
@@ -17,10 +16,17 @@ import BlokImage from '~/components/BlokImage.vue'
 import BlokAccordion from '~/components/BlokAccordion.vue'
 import BlokSnippet from '~/components/BlokSnippet.vue'
 import BlokActionNetworkForm from '~/components/BlokActionNetworkForm.vue'
+import BlokEventsList from '~/components/BlokEventsList.vue'
+
+// Global StoryBlok Components
+import BlokHeader from '~/components/BlokHeader.vue'
+import BlokFooter from '~/components/BlokFooter.vue'
+
 
 // Other components
 import Accordion from '~/components/Accordion.vue'
 import AccordionItem from '~/components/AccordionItem.vue'
+import DateRange from '~/components/DateRange.vue'
 
 // Import other tools
 import { marked } from 'marked'
@@ -46,6 +52,7 @@ export default function (Vue, { router, head, isClient }) {
   // Register Bloks
   Vue.component('BlokPage', BlokPage)
   Vue.component('BlokHeader', BlokHeader)
+  Vue.component('BlokFooter', BlokFooter)
   Vue.component('BlokButton', BlokButton)
   Vue.component('BlokButtons', BlokButtons)
   Vue.component('BlokGroup', BlokGroup)
@@ -54,11 +61,12 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('BlokAccordion', BlokAccordion)
   Vue.component('BlokSnippet', BlokSnippet)
   Vue.component('BlokActionNetworkForm', BlokActionNetworkForm)
+  Vue.component('BlokEventsList', BlokEventsList)
 
   // Register other components
   Vue.component('Accordion', Accordion)
   Vue.component('AccordionItem', AccordionItem)
-  // Vue.component('VRuntimeTemplate',VRuntimeTemplate)
+  Vue.component('DateRange',DateRange)
 
   // Register external npm packages (i.e. not Vue plugins)
   // See  https://gridsome.org/docs/assets-scripts/#using-an-external-library-1

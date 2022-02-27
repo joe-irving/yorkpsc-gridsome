@@ -3,6 +3,9 @@
 .wrapper {
   max-width: $content-width;
   margin: 0 auto;
+  img {
+    max-width: 100%;
+  }
 }
 .pad{
   padding: $padding-unit;
@@ -24,6 +27,9 @@
 }
 .full-screen {
   min-height: 100vh;
+}
+.half-screen {
+  min-height: 50vh;
 }
 
 // Richtext formatting

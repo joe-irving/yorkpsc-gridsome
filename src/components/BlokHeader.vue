@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-
     <strong>
       <g-link to="/">{{ blok.title }}</g-link>
     </strong>

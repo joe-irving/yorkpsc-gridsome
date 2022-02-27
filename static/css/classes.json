@@ -26,5 +26,9 @@
   {
     "name": "Full Screen Height",
     "value": "full-screen"
+  },
+  {
+    "name": "Half Screen Height",
+    "value": "half-screen"
   }
 ]

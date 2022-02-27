@@ -4,7 +4,10 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const path = require('path')
+const path = require('path');
+const moment = require('moment');
+const slugify = require('slugify');
+const todaysDate = new Date();
 
 function addStyleResource (rule) {
   rule.use('style-resource')
@@ -47,7 +50,14 @@ module.exports = {
     Post: [
       {
         path: (node) => {
-          return `/posts/${ node.Slug || node.Title || node.id }/`
+          return `/posts/${ node.Slug || (Object.keys(node).includes("Title") ? slugify(node.Title, {lower:true}) : node.id) }/`
+        }
+      }
+    ],
+    Event: [
+      {
+        path: (node) => {
+          return `/event/${ slugify(node.summary, {lower:true}) }-${ moment(node.start.date).format("DD-MMM-YYYY") }`
         }
       }
     ]
@@ -95,6 +105,20 @@ module.exports = {
             // }
           }
         ]
+      }
+    },
+    {
+      use: '@jammeryhq/gridsome-source-google-calendar',
+      options: {
+        calendarId: 'nar47r6qbo04v9j4htgave8nvk@group.calendar.google.com',
+        apiKey: process.env.GCAL_API_KEY,
+        typeName: 'Event',
+        includeRecurringEvents: true,
+        includeRaw: true,
+        apiParams: {
+          timeMin: todaysDate.toISOString(),
+          timeMax: new Date(todaysDate.getTime() + (1000*60*60*24*365.25)).toISOString()
+        }
       }
     }
   ]
