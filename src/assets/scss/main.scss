@@ -87,7 +87,7 @@ h1 {
   .#{ $name }-circle-richtext{
     border: $rounding $code solid;
     border-radius: 50%;
-    padding: $padding-unit / 2 $padding-unit;
+    padding: $padding-unit * 0.5 $padding-unit;
     // margin: $padding-unit / -2 -1 * $padding-unit;
     // z-index: 0;
   }

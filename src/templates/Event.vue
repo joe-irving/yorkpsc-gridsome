@@ -47,7 +47,7 @@
       actionNetworkLink(){
         console.log(this.$page.event.description)
         let links = extractUrls(this.$page.event.description)
-        console.log(links)
+        if (!links){ return null }
         let actionNetworkLinks = links.filter(link => link.includes("actionnetwork.org"));
         return actionNetworkLinks.length ? actionNetworkLinks[0] : null;
       }
