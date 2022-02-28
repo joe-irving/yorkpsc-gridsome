@@ -21,6 +21,9 @@ export default {
     &:hover, &:visited {
       color: $button-text-color;
     }
+    &:not(:hover), &:not(:visited) {
+      color: $button-text-color;
+    }
     text-decoration: none;
     font-weight: bolder;
     /* box-shadow:  2px 2px 5px grey; */

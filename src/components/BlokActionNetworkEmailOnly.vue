@@ -15,7 +15,7 @@
     gap: $padding-unit;
     input[type=email] {
       flex-grow: 2;
-      padding: 0 $padding-unit;
+      padding: $padding-unit;
     }
     input[type=submit] {
       flex-grow: 1;

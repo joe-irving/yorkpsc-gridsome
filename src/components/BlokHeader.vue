@@ -1,11 +1,15 @@
 <template>
   <header class="header" :class="{'nav-hidden': !showNavbar}">
-    <strong>
-      <g-link to="/">
-        <img :src="blok.logo.filename" :alt="blok.logo.alt" :title="blok.logo.title" v-if="blok.logo" class="header-image">
-        <span v-else>{{ blok.title }}</span>
-      </g-link>
-    </strong>
+
+    <g-link to="/">
+      <img :src="blok.logo.filename" :alt="blok.logo.alt" :title="blok.logo.title" v-if="blok.logo" class="header-image">
+      <span v-else><strong>{{ blok.title }}</strong></span>
+    </g-link>
+
+
+
+    <input type="checkbox" name="menuToggle" value="" class="menuToggle" id=menuToggle >
+    <label class="menuToggle label" for="menuToggle"></label>
     <nav class="nav">
       <g-link class="nav__link" v-for="navItem in blok.header"  :to="$getStoryblokLink(navItem.target)" :key="navItem._uid">{{ navItem.title }}</g-link>
     </nav>
@@ -39,7 +43,7 @@ export default {
 }
 </script>
 
-<style lang=scss>
+<style lang=scss scoped>
   .header {
     top: 0;
     position: fixed;
@@ -76,6 +80,61 @@ export default {
     }
     &:visited {
       color: $green;
+    }
+  }
+  .menuToggle {
+    display: none;
+    &.label{
+      &::before {
+        z-index: 101;
+        content: "\27AE";
+        font-size: 3em;
+        position: absolute;
+        top:  -1 * $padding-unit;
+        right: $padding-unit;
+        transition: transform $transition;
+      }
+    }
+  }
+
+  @include media-query($on-palm){
+    #menuToggle{
+      display: none;
+      &:checked   {
+        ~ nav.nav {
+          right: 0;
+        }
+        + label.menuToggle {
+          &::before {
+            transform: rotate(90deg);
+            position: fixed;
+          }
+        }
+      }
+    }
+    label.menuToggle{
+      display: block;
+    }
+
+    nav.nav {
+      background-color: $green;
+      padding: $spacing-unit;
+      position: fixed;
+      top:0;
+      height: 100vh;
+      padding-top: $header-height;
+      right: -100vw;
+      transition: right $transition;
+      min-width: calc(min(50vw, 400px));
+      box-shadow: 0 0 5px rgba($shadow, 1);
+      > * {
+        display: block;
+        margin-bottom: $padding-unit * 2;
+      }
+      > a.nav__link {
+        color: $black;
+      }
+
     }
   }
 </style>

@@ -76,7 +76,12 @@ ul {
 }
 
 h1 {
-  font-size: 3em;
+  @include media-query($on-laptop){
+    font-size: 3em;
+  }
+  @include media-query($on-palm){
+    font-size: 2.5em;
+  }
 }
 
 // Richtext formatting
