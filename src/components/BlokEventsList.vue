@@ -1,13 +1,22 @@
 <template>
-  <div class="BlokEventsList Gallery" v-editable="blok">
-      <div v-for="e in events" :key="e.id" class="Event Gallery-Post">
-        <div v-if="e.image" class="boxImage" :style="{backgroundImage:`url('https://drive.google.com/uc?export=view&id=${e.image.fileId}')`}"></div>
-        <div class="text">
-          <h2><g-link :to="e.path">{{ e.summary }}</g-link></h2>
-          <p><DateRange :allDay="e.allDay" :start="e.start.date" :end="e.end.date" /></p>
+  <div class="BlokEventsList " v-editable="blok">
+    <div v-for="chunk in chunkedEvents" >
+      <h2 v-if="chunk.title" class="center">{{ chunk.title }}</h2>
+      <div class="Gallery">
+        <div v-for="e in chunk.events" :key="e.id" class="Event Gallery-Post">
+          <g-link :to="e.path"  v-if="e.image"><div class="boxImage" :style="{backgroundImage:`url('https://drive.google.com/uc?export=view&id=${e.image.fileId}')`}"></div></g-link>
+          <div class="text">
+            <h2><g-link :to="e.path">{{ e.summary }}</g-link></h2>
+            <p><DateRange :allDay="e.allDay" :start="e.start.date" :end="e.end.date" /></p>
+            <address>
+              {{ e.location }}
+            </address>
+          </div>
         </div>
-
       </div>
+
+    </div>
+
     </div>
 </template>
 
@@ -27,6 +36,21 @@ export default {
       })
       let sort = this.blok.SortBy;
       return events.sort((a,b) => new Date(a[sort].timestamp) - new Date(b[sort].timestamp))
+    },
+    chunkedEvents(){
+      if (!this.blok.addHeaders){
+        return [{events: this.events}];
+      }
+      // let chunks = [];
+      let months = moment(this.events[this.events.length - 1].start.date).diff(moment(),'months');
+      let chunks = Array(months).fill(0).map((_, i) => {
+        return {
+          title: moment().month(i).format("MMMM"),
+          events: this.events.filter((e) => moment(e.start.date).month() === i)
+        }
+      })
+      console.log(chunks)
+      return chunks
     }
   },
   methods: {
@@ -49,7 +73,7 @@ export default {
     background-size: cover;
   }
   .Gallery{
-
+    padding: $spacing-unit 0;
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-unit;
@@ -62,7 +86,7 @@ export default {
         box-shadow: 0 0 15px rgba($shadow,1);
       }
       .text {
-        padding: 0 $padding-unit;
+        padding: $padding-unit;
       }
     }
   }
@@ -77,6 +101,7 @@ query Events{
         path
         summary
         description
+        location
         start {
           timestamp
           timeZone

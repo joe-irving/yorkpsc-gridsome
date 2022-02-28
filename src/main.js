@@ -17,6 +17,7 @@ import BlokAccordion from '~/components/BlokAccordion.vue'
 import BlokSnippet from '~/components/BlokSnippet.vue'
 import BlokActionNetworkForm from '~/components/BlokActionNetworkForm.vue'
 import BlokEventsList from '~/components/BlokEventsList.vue'
+import BlokPostsList from '~/components/BlokPostsList.vue'
 
 // Global StoryBlok Components
 import BlokHeader from '~/components/BlokHeader.vue'
@@ -27,6 +28,7 @@ import BlokFooter from '~/components/BlokFooter.vue'
 import Accordion from '~/components/Accordion.vue'
 import AccordionItem from '~/components/AccordionItem.vue'
 import DateRange from '~/components/DateRange.vue'
+import BlokActionNetworkEmailOnly from '~/components/BlokActionNetworkEmailOnly.vue'
 
 // Import other tools
 import { marked } from 'marked'
@@ -62,11 +64,13 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('BlokSnippet', BlokSnippet)
   Vue.component('BlokActionNetworkForm', BlokActionNetworkForm)
   Vue.component('BlokEventsList', BlokEventsList)
+  Vue.component('BlokPostsList', BlokPostsList)
 
   // Register other components
   Vue.component('Accordion', Accordion)
   Vue.component('AccordionItem', AccordionItem)
   Vue.component('DateRange',DateRange)
+  Vue.component('BlokActionNetworkEmailOnly',BlokActionNetworkEmailOnly)
 
   // Register external npm packages (i.e. not Vue plugins)
   // See  https://gridsome.org/docs/assets-scripts/#using-an-external-library-1

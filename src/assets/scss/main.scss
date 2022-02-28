@@ -32,8 +32,58 @@
   min-height: 50vh;
 }
 
+a {
+  color: $green;
+  text-decoration: none;
+  &:hover  {
+    color: darken($green, 10%);
+  }
+  &:not(:hover){
+    color: $green;
+  }
+  &:visited {
+    color: darken($green, 10%);
+  }
+}
+
+ul {
+  list-style: none;
+  li {
+    // margin: $padding-unit 0;
+    > p {
+      display: inline-block;
+      margin: 0;
+      padding:  0;
+    }
+  }
+  li::before{
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+    position: absolute;
+  }
+  li:nth-child(3n)::before {
+    color: $red;
+  }
+  li:nth-child(3n+1)::before {
+    color: $green;
+  }
+  li:nth-child(3n+2)::before {
+    color: inital;
+  }
+}
+
+h1 {
+  font-size: 3em;
+}
+
 // Richtext formatting
 @each $name, $code in $colors {
+  .#{ $name }-text-color{
+    color: $code;
+  }
   .#{ $name }-circle-richtext{
     border: $rounding $code solid;
     border-radius: 50%;

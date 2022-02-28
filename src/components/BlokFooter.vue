@@ -9,6 +9,7 @@
           <li v-for="navItem in blok.footer" :key="navItem._uid"><g-link class="footerLink" :to="$getStoryblokLink(navItem.target)" >{{ navItem.title }}</g-link></li>
         </ul>
       </nav>
+      <component :class=blok.classes :key="blok._uid" v-for="blok in blok.footerContent" :blok="blok" :is="'Blok'+blok.component"></component>
     </div>
   </footer>
 </template>
@@ -29,12 +30,19 @@ export default {
   .footer-wrapper {
     max-width: $content-width;
     margin: 0 auto;
-  }
-  .footerLink{
-    color: $text-color-invert;
-    text-decoration: none;
-    &:hover{
-      text-decoration: underline;
+    ul {
+      li::before {
+        color: $text-color-invert;
+      }
+    }
+
+    a.footerLink{
+      color: $text-color-invert;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
+
 </style>

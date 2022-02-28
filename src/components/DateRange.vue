@@ -28,8 +28,8 @@ export default {
   computed: {
     multi(){
       return {
-        day: e.end ? !moment(e.start).isSame(e.end, "day") : false,
-        year: e.end ? !moment(e.start).isSame(e.end, "year") : false,
+        day: this.end ? !moment(this.start).isSame(this.end, "day") : false,
+        year: this.end ? !moment(this.start).isSame(this.end, "year") : false,
       }
     }
   },

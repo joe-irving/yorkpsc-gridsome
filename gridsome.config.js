@@ -110,7 +110,7 @@ module.exports = {
     {
       use: '@jammeryhq/gridsome-source-google-calendar',
       options: {
-        calendarId: 'nar47r6qbo04v9j4htgave8nvk@group.calendar.google.com',
+        calendarId: 'qiepirosdns1a1fetqr9i5j8vg@group.calendar.google.com',
         apiKey: process.env.GCAL_API_KEY,
         typeName: 'Event',
         includeRecurringEvents: true,

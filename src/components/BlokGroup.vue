@@ -3,7 +3,7 @@
     class="group"
     :class="parentClasses"
     v-editable="blok"
-    :style="{'background-image': 'url('+blok.background_image.filename+')'}"
+    :style="{'background-image': 'url('+blok.background_image.filename+')', 'background-position': `${ blok.backgroundPosition }`}"
     :id=blok.slug
     >
     <component  :class=blok.classes :key="blok._uid" v-for="blok in blok.bloks" :blok="blok" :is="'Blok'+blok.component" :style="childStyle"></component>
@@ -41,12 +41,13 @@ export default {
 
 <style lang="scss" scoped>
   .group{
-    background: #ffffff no-repeat center center fixed;
+    background: #ffffff no-repeat center bottom;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     display: flex;
+    justify-content: space-around;
     @media screen and (max-width: $on-palm) {
       &.columns{
         flex-direction: column;

@@ -1,5 +1,5 @@
 <template>
-  <div v-editable=blok :id=containerId :style=style :classes=blok.classes >
+  <div v-editable=blok :id=action.containerId :style=action.style :class=classes>
   </div>
 </template>
 
@@ -8,12 +8,7 @@
 export default {
   props: ['blok'],
   data() {
-    // axios.get({
-    //   url: "https://actionnetwork.org/oembed/",
-    //   params: {
-    //     url: "this.blok.url"
-    //   }
-    // })
+    // Get embed info
     let urlList = this.blok.url.split("://")[1].split("?")[0].split("/").slice(1,3);
     let action = {
       "type": urlList[0].slice(0,-1),
@@ -24,13 +19,25 @@ export default {
     action.style = {
       width: "100%"
     }
-    return action;
+    // compile classes
+    let cssClass = {}
+    this.blok.classes.forEach((className) => cssClass[className]=true)
+
+
+
+    return {
+      action:action,
+      classes: {
+        ...cssClass,
+        formOnly: this.blok.formOnly
+      }
+    };
   },
   metaInfo() {
     return {
       script: [
         {
-          src: this.src
+          src: this.action.src
         }
       ],
       link: [
@@ -44,3 +51,15 @@ export default {
   }
 }
 </script>
+
+<style lang=scss>
+  .formOnly{
+    #can_embed_form {
+      #can_embed_form_inner {
+        > *:not(form){
+          display: none;
+        }
+      }
+    }
+  }
+</style>
