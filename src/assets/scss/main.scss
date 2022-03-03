@@ -84,6 +84,20 @@ h1 {
   }
 }
 
+blockquote {
+  border-left: $red 4px solid;
+  padding-left: $padding-unit;
+  margin-left: 0;
+  ul {
+    padding-left: $padding-unit * 2;
+  }
+  li {
+    &::before{
+      content: "\21A0";
+    }
+  }
+}
+
 // Richtext formatting
 @each $name, $code in $colors {
   .#{ $name }-text-color{

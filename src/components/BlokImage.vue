@@ -18,7 +18,7 @@ export default {
 
 <style lang=scss scoped>
   .panel.image{
-    &:not(.full-screen){
+    &:not(.full-screen):not(.half-screen){
       min-height: 200px;
     }
     background: rgba(white,0) no-repeat center center;

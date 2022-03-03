@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer-wrapper">
+    <div class="footer-wrapper pad">
       <strong>
         <g-link class="footerLink" to="/">{{ blok.title }}</g-link>
       </strong>

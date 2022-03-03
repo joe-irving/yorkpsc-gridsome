@@ -4,6 +4,7 @@
       v-if="story.content.component"
       :key="story.content._uid"
       :blok="story.content"
+      :story="story"
       :is="'Blok'+story.content.component"
     >
     </component>

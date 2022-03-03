@@ -8,6 +8,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 
 // Storyblok Components
 import BlokPage from '~/components/BlokPage.vue'
+import BlokPost from '~/components/BlokPost.vue'
 import BlokButton from '~/components/BlokButton.vue'
 import BlokButtons from '~/components/BlokButtons.vue'
 import BlokGroup from '~/components/BlokGroup.vue'
@@ -29,6 +30,7 @@ import Accordion from '~/components/Accordion.vue'
 import AccordionItem from '~/components/AccordionItem.vue'
 import DateRange from '~/components/DateRange.vue'
 import BlokActionNetworkEmailOnly from '~/components/BlokActionNetworkEmailOnly.vue'
+import Banner from '~/components/Banner.vue'
 
 // Import other tools
 import { marked } from 'marked'
@@ -53,6 +55,7 @@ export default function (Vue, { router, head, isClient }) {
 
   // Register Bloks
   Vue.component('BlokPage', BlokPage)
+  Vue.component('BlokPost', BlokPost)
   Vue.component('BlokHeader', BlokHeader)
   Vue.component('BlokFooter', BlokFooter)
   Vue.component('BlokButton', BlokButton)
@@ -65,12 +68,14 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('BlokActionNetworkForm', BlokActionNetworkForm)
   Vue.component('BlokEventsList', BlokEventsList)
   Vue.component('BlokPostsList', BlokPostsList)
+  Vue.component('BlokActionNetworkEmailOnly',BlokActionNetworkEmailOnly)
 
   // Register other components
   Vue.component('Accordion', Accordion)
   Vue.component('AccordionItem', AccordionItem)
   Vue.component('DateRange',DateRange)
-  Vue.component('BlokActionNetworkEmailOnly',BlokActionNetworkEmailOnly)
+  Vue.component('BlokBanner',Banner)
+
 
   // Register external npm packages (i.e. not Vue plugins)
   // See  https://gridsome.org/docs/assets-scripts/#using-an-external-library-1
